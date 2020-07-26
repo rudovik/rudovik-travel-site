@@ -6,14 +6,13 @@ const {
   copySpriteGraphic,
   beginClean,
   endClean,
-  icons,
 } = require("./gulp/tasks/sprites");
 
 exports.watch = watch;
-exports.createSprite = createSprite;
-exports.copySpriteCSS = copySpriteCSS;
-exports.beginClean = beginClean;
-exports.endClean = endClean;
+// exports.createSprite = createSprite;
+// exports.copySpriteCSS = copySpriteCSS;
+// exports.beginClean = beginClean;
+// exports.endClean = endClean;
 exports.icons = series(
   beginClean,
   createSprite,
