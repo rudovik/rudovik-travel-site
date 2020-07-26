@@ -7,8 +7,8 @@ const nested = require("postcss-nested");
 const cssImport = require("postcss-import");
 const mixins = require("postcss-mixins");
 
-const styles = async () => {
-  src("./app/assets/styles/styles.scss")
+const styles = () => {
+  return src("./app/assets/styles/styles.scss")
     .pipe(postcss([cssImport, mixins, cssvars(), nested, autoprefixer]))
     .on("error", function (errorInfo) {
       console.log(errorInfo.toString());
@@ -20,8 +20,8 @@ const styles = async () => {
 
 const injectCss = (browserSync) => {
   let cssInject;
-  return (cssInject = async () => {
-    src("./app/temp/styles/styles.css").pipe(browserSync.stream());
+  return (cssInject = () => {
+    return src("./app/temp/styles/styles.css").pipe(browserSync.stream());
   });
 };
 
