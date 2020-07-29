@@ -6,10 +6,13 @@ const rename = require("gulp-rename");
 const nested = require("postcss-nested");
 const cssImport = require("postcss-import");
 const mixins = require("postcss-mixins");
+const hexrgba = require("postcss-hexrgba");
 
 const styles = () => {
   return src("./app/assets/styles/styles.scss")
-    .pipe(postcss([cssImport, mixins, cssvars(), nested, autoprefixer]))
+    .pipe(
+      postcss([cssImport, mixins, cssvars(), nested, hexrgba, autoprefixer])
+    )
     .on("error", function (errorInfo) {
       console.log(errorInfo.toString());
       this.emit("end");
