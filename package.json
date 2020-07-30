@@ -6,6 +6,7 @@
     "jquery-smooth-scroll": "^2.2.0",
     "lazysizes": "^5.2.2",
     "normalize.css": "^8.0.1",
+    "picturefill": "^3.0.3",
     "waypoints": "^4.0.1"
   },
   "devDependencies": {
@@ -18,9 +19,11 @@
     "browser-sync": "^2.26.10",
     "del": "^5.1.0",
     "gulp": "^4.0.2",
+    "gulp-modernizr": "^4.0.1",
     "gulp-postcss": "^8.0.0",
     "gulp-rename": "^2.0.0",
     "gulp-svg-sprite": "^1.5.0",
+    "gulp-svg2png": "^2.0.2",
     "gulp-watch": "^5.0.1",
     "postcss-hexrgba": "^2.0.1",
     "postcss-import": "^12.0.1",

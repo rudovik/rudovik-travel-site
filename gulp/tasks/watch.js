@@ -7,6 +7,7 @@ const browserSyncInit = promisify(browserSync.init);
 
 const { cssInject, styles } = require("./styles");
 const { scripts } = require("./scripts");
+const { modernizr } = require("./modernizr");
 
 const watchTask = async () => {
   await browserSyncInit({
@@ -17,12 +18,12 @@ const watchTask = async () => {
   });
   watch("./app/index.html").on("change", browserSync.reload);
   watch("./app/assets/styles/**/*", series(styles, cssInject(browserSync)));
-  watch("./app/assets/scripts/**/*.js", series(scripts(browserSync))).on(
-    "error",
-    function () {
-      this.emit("end");
-    }
-  );
+  watch(
+    "./app/assets/scripts/**/*.js",
+    series(modernizr, scripts(browserSync))
+  ).on("error", function () {
+    this.emit("end");
+  });
 };
 
 exports.watch = watchTask;

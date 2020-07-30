@@ -2,11 +2,13 @@ const { series } = require("gulp");
 const { watch } = require("./gulp/tasks/watch");
 const {
   createSprite,
+  createPngCopy,
   copySpriteCSS,
   copySpriteGraphic,
   beginClean,
   endClean,
 } = require("./gulp/tasks/sprites");
+const { modernizr } = require("./gulp/tasks/modernizr");
 const { scripts } = require("./gulp/tasks/scripts");
 
 exports.watch = watch;
@@ -17,9 +19,12 @@ exports.watch = watch;
 exports.icons = series(
   beginClean,
   createSprite,
+  createPngCopy,
   copySpriteGraphic,
   copySpriteCSS,
   endClean
 );
+
+exports.modernizr = modernizr;
 
 exports.scripts = scripts;
