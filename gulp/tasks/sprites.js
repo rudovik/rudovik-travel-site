@@ -72,4 +72,11 @@ exports.copySpriteCSS = copySpriteCSS;
 exports.copySpriteGraphic = copySpriteGraphic;
 exports.beginClean = beginClean;
 exports.endClean = endClean;
-exports.icons = icons;
+exports.icons = series(
+  beginClean,
+  createSprite,
+  createPngCopy,
+  copySpriteGraphic,
+  copySpriteCSS,
+  endClean
+);

@@ -5,8 +5,7 @@ module.exports = {
     Vendor: "./app/assets/scripts/Vendor.js",
   },
   output: {
-    path:
-      "/home/rudovik/Desktop/node-course/rudovik-travel-site/app/temp/scripts",
+    path: __dirname + "/app/temp/scripts",
     filename: "[name].js",
   },
   module: {

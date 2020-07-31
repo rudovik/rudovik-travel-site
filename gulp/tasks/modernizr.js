@@ -1,14 +1,14 @@
 const { src, dest } = require("gulp");
-const modernizr = require("gulp-modernizr");
+const modern = require("gulp-modernizr");
 
-const modern = () => {
+const modernizer = () => {
   return src(["./app/assets/styles/**/*.scss", "./app/assets/scripts/**/*.js"])
     .pipe(
-      modernizr({
+      modern({
         options: ["setClasses"],
       })
     )
     .pipe(dest("./app/temp/scripts/"));
 };
 
-exports.modernizr = modern;
+exports.modernizr = modernizer;
