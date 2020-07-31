@@ -6,7 +6,14 @@ const rev = require("gulp-rev");
 const cssnano = require("gulp-cssnano");
 const { scripts } = require("./scripts");
 const { styles } = require("./styles");
-const { icons } = require("./sprites");
+const {
+  createSprite,
+  createPngCopy,
+  copySpriteCSS,
+  copySpriteGraphic,
+  beginClean,
+  endClean,
+} = require("./sprites");
 const { modernizr } = require("./modernizr");
 const uglify = require("gulp-uglify");
 
@@ -85,10 +92,17 @@ const usemin = () => {
 exports.build = series(
   deleteDistFolder,
   copyGeneralFiles,
+  series(
+    beginClean,
+    createSprite,
+    createPngCopy,
+    copySpriteGraphic,
+    copySpriteCSS,
+    endClean
+  ),
   styles,
   modernizr,
   scripts(false, "production"),
-  icons,
   optimizeImages,
   usemin,
   previewDist

@@ -63,7 +63,14 @@ const endClean = () => {
 };
 
 const icons = () => {
-  series(createSprite, copySpriteCSS);
+  series(
+    beginClean,
+    createSprite,
+    createPngCopy,
+    copySpriteGraphic,
+    copySpriteCSS,
+    endClean
+  );
 };
 
 exports.createSprite = createSprite;
@@ -72,11 +79,4 @@ exports.copySpriteCSS = copySpriteCSS;
 exports.copySpriteGraphic = copySpriteGraphic;
 exports.beginClean = beginClean;
 exports.endClean = endClean;
-exports.icons = series(
-  beginClean,
-  createSprite,
-  createPngCopy,
-  copySpriteGraphic,
-  copySpriteCSS,
-  endClean
-);
+exports.icons = icons;
